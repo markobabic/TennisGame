@@ -15,5 +15,6 @@ namespace TennisGame.Services.Model
         }
         public bool IsFinished { get; set; }
         public List<SetResult> Sets { get; set; }
+        public Player Winner { get; set; }
     }
 }

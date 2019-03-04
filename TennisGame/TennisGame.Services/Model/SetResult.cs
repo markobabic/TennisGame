@@ -11,6 +11,7 @@ namespace TennisGame.Services.Model
         public int Player2Score { get; set; }
 
         public bool IsFinished { get; set; }
+        public Player Winner { get; set; }
 
         public SetResult(Player player1, Player player2)
         {

@@ -1,13 +1,29 @@
 ﻿using System.Collections.Generic;
 using TennisGame.Services.Model;
 
-namespace TennisGame.Services
+namespace TennisGame.Services.Implementation
 {
     public class TennisGameService : ITennisGameService
     {
+        private readonly IUmpireService _umpireService;
+
+        public TennisGameService(IUmpireService umpireService)
+        {
+            _umpireService = umpireService;
+        }
+
+
         public MatchResult PlayMatch(Player player1, Player player2)
         {
-            return new MatchResult(){IsFinished = true, Sets = new List<SetResult>{new SetResult(player1,player2){IsFinished = true}}};
+            var matchResult = new MatchResult(player1, player2);
+
+           
+            matchResult.Sets.Add(_umpireService.ConductSet(player1, player2));
+
+
+            matchResult.IsFinished = true;
+
+            return matchResult;
         }
     }
 }

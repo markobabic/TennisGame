@@ -20,7 +20,7 @@ namespace TennisGame.Services.Implementation
         {
             var setResult  = new SetResult(player1,player2);
 
-            while(_setRules.All(r=> r.IsAchieved(setResult)))
+            while(!_setRules.All(r=> r.IsAchieved(setResult)))
                 setResult.Play();
 
             setResult.IsFinished = true;

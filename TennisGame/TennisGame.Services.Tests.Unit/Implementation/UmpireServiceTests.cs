@@ -55,7 +55,7 @@ namespace TennisGame.Services.Tests.Unit.Implementation
         public void Set_Is_Conducted_Untill_Rules_Are_Satisfied()
         {
             //arrange
-            _setRule.SetupSequence(sr => sr.IsAchieved(It.IsAny<SetResult>())).Returns(false).Returns(false).Returns(true);
+            _setRule.SetupSequence(sr => sr.IsAchieved(It.IsAny<SetResult>())).Returns(false).Returns(false).Returns(false).Returns(true);
 
             //act
             var result = _umpireService.ConductSet(_player1, _player2);

@@ -3,11 +3,11 @@ namespace TennisGame.Services.Model
 {
     public class Player
     {
-        private readonly string _name;
+        public string Name { get; }
 
         public Player(string name)
         {
-            _name = name;
+            Name = name;
         }
     }
 }

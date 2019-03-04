@@ -25,5 +25,16 @@ namespace TennisGame.Services.Tests.Unit.Implementation
             //assert
             Assert.True(result.IsFinished);
         }
+
+        [Fact]
+        public void Given_Two_Players_When_Match_Is_Played_Then_SetResults_Are_Added()
+        {
+            //act
+            var result = _tennisGameService.PlayMatch(_player1, _player2);
+
+            //assert
+            Assert.NotEmpty(result.Sets);
+            Assert.All(result.Sets, r=> Assert.True(r.IsFinished));
+        }
     }
 }
